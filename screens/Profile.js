@@ -45,18 +45,7 @@ class Profile extends React.Component {
                     space="evenly"
                     style={{ marginTop: 20, paddingBottom: 24 }}
                   >
-                    <Button
-                      small
-                      style={{ backgroundColor: argonTheme.COLORS.INFO }}
-                    >
-                      CONNECT
-                    </Button>
-                    <Button
-                      small
-                      style={{ backgroundColor: argonTheme.COLORS.DEFAULT }}
-                    >
-                      MESSAGE
-                    </Button>
+                    
                   </Block>
                   <Block row space="between">
                     <Block middle>
@@ -66,9 +55,9 @@ class Profile extends React.Component {
                         color="#525F7F"
                         style={{ marginBottom: 4 }}
                       >
-                        2K
+                        15
                       </Text>
-                      <Text size={12}>Orders</Text>
+                      <Text size={12}>Paseos</Text>
                     </Block>
                     <Block middle>
                       <Text
@@ -77,9 +66,9 @@ class Profile extends React.Component {
                         size={12}
                         style={{ marginBottom: 4 }}
                       >
-                        10
+                        4.1
                       </Text>
-                      <Text size={12}>Photos</Text>
+                      <Text size={12}>Puntuacion</Text>
                     </Block>
                     <Block middle>
                       <Text
@@ -90,31 +79,32 @@ class Profile extends React.Component {
                       >
                         89
                       </Text>
-                      <Text size={12}>Comments</Text>
+                      <Text size={12}>Comentarios</Text>
                     </Block>
                   </Block>
                 </Block>
                 <Block flex>
                   <Block middle style={styles.nameInfo}>
                     <Text bold size={28} color="#32325D">
-                      Jessica Jones, 27
+                      Alejandra Mejia Fernadez
+                    </Text>
+                  </Block>
+                  <Block flex left style={styles.nameInfo}></Block>
+                    <Text size={16} color="#32325D" style={{ marginTop: 10 }}>
+                      Tuluá, Valle del Cauca
                     </Text>
                     <Text size={16} color="#32325D" style={{ marginTop: 10 }}>
-                      San Francisco, USA
+                      3101234567
+                    </Text>
+                    <Text size={16} color="#32325D" style={{ marginTop: 10 }}>
+                      mi-email@dominio.com
                     </Text>
                   </Block>
                   <Block middle style={{ marginTop: 30, marginBottom: 16 }}>
                     <Block style={styles.divider} />
                   </Block>
                   <Block middle>
-                    <Text
-                      size={16}
-                      color="#525F7F"
-                      style={{ textAlign: "center" }}
-                    >
-                      An artist of considerable range, Jessica name taken by
-                      Melbourne …
-                    </Text>
+                    
                     <Button
                       color="transparent"
                       textStyle={{
@@ -123,43 +113,12 @@ class Profile extends React.Component {
                         fontSize: 16
                       }}
                     >
-                      Show more
+                      Editar
                     </Button>
                   </Block>
-                  <Block
-                    row
-                    style={{ paddingVertical: 14, alignItems: "baseline" }}
-                  >
-                    <Text bold size={16} color="#525F7F">
-                      Album
-                    </Text>
-                  </Block>
-                  <Block
-                    row
-                    style={{ paddingBottom: 20, justifyContent: "flex-end" }}
-                  >
-                    <Button
-                      small
-                      color="transparent"
-                      textStyle={{ color: "#5E72E4", fontSize: 12 }}
-                    >
-                      View all
-                    </Button>
-                  </Block>
-                  <Block style={{ paddingBottom: -HeaderHeight * 2 }}>
-                    <Block row space="between" style={{ flexWrap: "wrap" }}>
-                      {Images.Viewed.map((img, imgIndex) => (
-                        <Image
-                          source={{ uri: img }}
-                          key={`viewed-${img}`}
-                          resizeMode="cover"
-                          style={styles.thumb}
-                        />
-                      ))}
-                    </Block>
-                  </Block>
+                  
+                  
                 </Block>
-              </Block>
             </ScrollView>
           </ImageBackground>
         </Block>

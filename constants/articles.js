@@ -21,9 +21,9 @@ export default [
     cta: 'View article' 
   },
   {
-    title: 'Argon is a great free UI packag …',
-    image: 'https://images.unsplash.com/photo-1482686115713-0fbcaced6e28?fit=crop&w=1947&q=80',
-    cta: 'View article', 
+    title: 'Descripcion de las ultima noticias de perros y mascotas',
+    image: "https://www.elcomercio.com/files/article_main/uploads/2019/11/19/5dd46f53c97eb.jpeg",
+    //cta: 'View article', 
     horizontal: true
   },
 ];

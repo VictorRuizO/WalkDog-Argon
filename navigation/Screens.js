@@ -16,6 +16,7 @@ import Profile from "../screens/Profile";
 import Register from "../screens/Register";
 import Elements from "../screens/Elements";
 import Articles from "../screens/Articles";
+import Login from "../screens/Login";
 // drawer
 import Menu from "./Menu";
 import DrawerItem from "../components/DrawerItem";
@@ -112,18 +113,10 @@ const HomeStack = createStackNavigator(
     Home: {
       screen: Home,
       navigationOptions: ({ navigation }) => ({
-        header: <Header search options title="Home" navigation={navigation} />
-      })
-    },
-    Pro: {
-      screen: Pro,
-      navigationOptions: ({ navigation }) => ({
-        header: (
-          <Header left={<Block />} white transparent title="" navigation={navigation} />
-        ),
-        headerTransparent: true
+        header: <Header title="Home" navigation={navigation} />
       })
     }
+    
   },
   {
     cardStyle: {
@@ -159,11 +152,9 @@ const AppStack = createDrawerNavigator(
     },
     Register: {
       screen: Register,
-      navigationOptions: navOpt => ({
-        drawerLabel: ({ focused }) => (
-          <DrawerItem focused={focused} screen="Register" title="Register" />
-        )
-      })
+      navigationOptions: {
+        drawerLabel: () => {}
+      }
     },
     Elements: {
       screen: ElementsStack,
@@ -173,6 +164,20 @@ const AppStack = createDrawerNavigator(
         )
       })
     },
+    Login: {
+      screen: Login,
+      navigationOptions: {
+        drawerLabel: () => {}
+      }
+    },/*
+    Login: {
+      screen: Login,
+      navigationOptions: navOpt => ({
+        drawerLabel: ({ focused }) => (
+          <DrawerItem focused={focused} screen="Login" title="Login" />
+        )
+      })
+    },*/
     Articles: {
       screen: ArticlesStack,
       navigationOptions: navOpt => ({

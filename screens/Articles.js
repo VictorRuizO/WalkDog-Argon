@@ -81,59 +81,15 @@ class Articles extends React.Component {
   renderCards = () => {
     return (
       <Block flex style={styles.group}>
-        <Text bold size={16} style={styles.title}>
-          Cards
-        </Text>
+        
         <Block flex>
           <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-            <Card item={articles[0]} horizontal />
-            <Block flex row>
-              <Card
-                item={articles[1]}
-                style={{ marginRight: theme.SIZES.BASE }}
-              />
-              <Card item={articles[2]} />
-            </Block>
             <Card item={articles[4]} full />
-            <Block flex card shadow style={styles.category}>
-              <ImageBackground
-                source={{ uri: Images.Products["View article"] }}
-                style={[
-                  styles.imageBlock,
-                  { width: width - theme.SIZES.BASE * 2, height: 252 }
-                ]}
-                imageStyle={{
-                  width: width - theme.SIZES.BASE * 2,
-                  height: 252
-                }}
-              >
-                <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>
-                    View article
-                  </Text>
-                </Block>
-              </ImageBackground>
-            </Block>
+            <Card item={articles[4]} full />
+            <Card item={articles[4]} full />
+            
           </Block>
-          <Block flex style={{ marginTop: theme.SIZES.BASE / 2 }}>
-            <ScrollView
-              horizontal={true}
-              pagingEnabled={true}
-              decelerationRate={0}
-              scrollEventThrottle={16}
-              snapToAlignment="center"
-              showsHorizontalScrollIndicator={false}
-              snapToInterval={cardWidth + theme.SIZES.BASE * 0.375}
-              contentContainerStyle={{
-                paddingHorizontal: theme.SIZES.BASE / 2
-              }}
-            >
-              {categories &&
-                categories.map((item, index) =>
-                  this.renderProduct(item, index)
-                )}
-            </ScrollView>
-          </Block>
+          
         </Block>
       </Block>
     );
@@ -187,7 +143,6 @@ class Articles extends React.Component {
           showsVerticalScrollIndicator={false}
         >
           {this.renderCards()}
-          {this.renderAlbum()}
         </ScrollView>
       </Block>
     );

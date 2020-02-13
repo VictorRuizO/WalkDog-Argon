@@ -13,7 +13,7 @@ import { Button, Icon, Input } from "../components";
 import { Images, argonTheme } from "../constants";
 const { width, height } = Dimensions.get("screen");
 
-class Register extends React.Component {
+class Login extends React.Component {
   render() {
     const { navigation } = this.props;
     return (
@@ -37,21 +37,7 @@ class Register extends React.Component {
                     <Block middle>
                         <Image source={Images.logoRedondo} style={styles.logo} />
                     </Block>
-                    <Block width={width * 0.8} style={{ marginBottom: 10 }}>
-                      <Input
-                        borderless
-                        placeholder="Name"
-                        iconContent={
-                          <Icon
-                            size={16}
-                            color={argonTheme.COLORS.ICON}
-                            name="hat-3"
-                            family="ArgonExtra"
-                            style={styles.inputIcons}
-                          />
-                        }
-                      />
-                    </Block>
+                    
                     <Block width={width * 0.8} style={{ marginBottom: 10 }}>
                       <Input
                         borderless
@@ -84,47 +70,29 @@ class Register extends React.Component {
                       />
                       
                     </Block>
-                    <Block row width={width * 0.75}>
-                      <Checkbox
-                        checkboxStyle={{
-                          borderWidth: 3
-                        }}
-                        color={argonTheme.COLORS.PRIMARY}
-                        label="I agree with the"
-                      />
-                      <Button
-                        style={{ width: 100 }}
-                        color="transparent"
-                        textStyle={{
-                          color: argonTheme.COLORS.PRIMARY,
-                          fontSize: 14
-                        }}
-                      >
-                        Privacy Policy
-                      </Button>
-                    </Block>
+                    
                     <Block middle style={{ marginBottom: 15 }}>
                       <Button color="primary" 
                       style={styles.createButton}
                       onPress={() => navigation.navigate("Articles")}
                       >
                         <Text bold size={14} color={argonTheme.COLORS.WHITE}>
-                          Crear cuenta
+                          Login
                         </Text>
                       </Button>
                     </Block>
                     <Block middle style={{flexDirection:"row"}}>
-                      <Text size={12}>Ya poseo una cuenta: </Text>
+                      <Text size={12}>No poseo una cuenta: </Text>
                       <Button
                           style={{ width: 70 }}
-                          onPress={() => navigation.navigate("Login")}
+                          onPress={() => navigation.navigate("Register")}
                           color="transparent"
                           textStyle={{
                             color: argonTheme.COLORS.PRIMARY,
                             fontSize: 12
                           }}
                         >
-                          Log in
+                          Registrarme
                         </Button>
                     </Block>
                   </KeyboardAvoidingView>
@@ -198,4 +166,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Register;
+export default Login;

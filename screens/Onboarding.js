@@ -22,29 +22,29 @@ class Onboarding extends React.Component {
         <StatusBar hidden />
         <Block flex center>
         <ImageBackground
-            source={Images.Onboarding}
+            source={Images.fondoOnboard}
             style={{ height, width, zIndex: 1 }}
           />
         </Block>
         <Block center>
-          <Image source={Images.LogoOnboarding} style={styles.logo} />
+          <Image source={Images.logoRedondo} style={styles.logo} />
         </Block>
         <Block flex space="between" style={styles.padded}>
             <Block flex space="around" style={{ zIndex: 2 }}>
               <Block style={styles.title}>
                 <Block>
                   <Text color="white" size={60}>
-                    Design
+                    Walk
                   </Text>
                 </Block>
                 <Block>
                   <Text color="white" size={60}>
-                    System
+                    Dog
                   </Text>
                 </Block>
                 <Block style={styles.subTitle}>
                   <Text color="white" size={16}>
-                    Fully coded React Native components.
+                  La manera mas facil de ganar dinero paseando perros.
                   </Text>
                 </Block>
               </Block>
@@ -55,7 +55,7 @@ class Onboarding extends React.Component {
                   onPress={() => navigation.navigate("Register")}
                   textStyle={{ color: argonTheme.COLORS.BLACK }}
                 >
-                  Get Started
+                  Comenzar
                 </Button>
               </Block>
           </Block>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: 200,
-    height: 60,
+    height: 200,
     zIndex: 2,
     position: 'relative',
     marginTop: '-50%'
