@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "WalkDog",
-    "slug": "argon-free-react-native",
+    "slug": "walk-dog-react-native",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [

@@ -14,8 +14,8 @@ import Onboarding from "../screens/Onboarding";
 import Pro from "../screens/Pro";
 import Profile from "../screens/Profile";
 import Register from "../screens/Register";
-import Elements from "../screens/Elements";
-import Articles from "../screens/Articles";
+import Walks from "../screens/Walks";
+import Historial from "../screens/Historial";
 import Login from "../screens/Login";
 // drawer
 import Menu from "./Menu";
@@ -62,11 +62,11 @@ const transitionConfig = (transitionProps, prevTransitionProps) => ({
   }
 });
 
-const ElementsStack = createStackNavigator({
-  Elements: {
-    screen: Elements,
+const WalksStack = createStackNavigator({
+  Walks: {
+    screen: Walks,
     navigationOptions: ({ navigation }) => ({
-      header: <Header title="Elements" navigation={navigation} />
+      header: <Header title="Walks" navigation={navigation} />
     })
   }
 },{
@@ -77,10 +77,10 @@ const ElementsStack = createStackNavigator({
 });
 
 const ArticlesStack = createStackNavigator({
-  Articles: {
-    screen: Articles,
+  Historial: {
+    screen: Historial,
     navigationOptions: ({ navigation }) => ({
-      header: <Header title="Articles" navigation={navigation} />
+      header: <Header title="Historial" navigation={navigation} />
     })
   }
 },{
@@ -146,7 +146,7 @@ const AppStack = createDrawerNavigator(
       screen: ProfileStack,
       navigationOptions: navOpt => ({
         drawerLabel: ({ focused }) => (
-          <DrawerItem focused={focused} screen="Profile" title="Profile" />
+          <DrawerItem focused={focused} screen="Profile" title="Perfil" />
         )
       })
     },
@@ -156,11 +156,11 @@ const AppStack = createDrawerNavigator(
         drawerLabel: () => {}
       }
     },
-    Elements: {
-      screen: ElementsStack,
+    Walks: {
+      screen: WalksStack,
       navigationOptions: navOpt => ({
         drawerLabel: ({ focused }) => (
-          <DrawerItem focused={focused} screen="Elements" title="Elements" />
+          <DrawerItem focused={focused} screen="Walks" title="Paseos" />
         )
       })
     },
@@ -169,20 +169,12 @@ const AppStack = createDrawerNavigator(
       navigationOptions: {
         drawerLabel: () => {}
       }
-    },/*
-    Login: {
-      screen: Login,
-      navigationOptions: navOpt => ({
-        drawerLabel: ({ focused }) => (
-          <DrawerItem focused={focused} screen="Login" title="Login" />
-        )
-      })
-    },*/
-    Articles: {
+    },
+    Historial: {
       screen: ArticlesStack,
       navigationOptions: navOpt => ({
         drawerLabel: ({ focused }) => (
-          <DrawerItem focused={focused} screen="Articles" title="Articles" />
+          <DrawerItem focused={focused} screen="Historial" title="Historial" />
         )
       })
     }

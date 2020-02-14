@@ -36,7 +36,7 @@ const categories = [
   }
 ];
 
-class Home extends React.Component {
+class Walks extends React.Component {
   renderProduct = (item, index) => {
     const { navigation } = this.props;
 
@@ -84,8 +84,8 @@ class Home extends React.Component {
         
         <Block flex>
           <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-            <Card item={articles[4]} full />
-            <Card item={articles[4]} full />
+            <Card item={articles[3]} full />
+            <Card item={articles[3]} full />
             <Card item={articles[3]} full />
             
           </Block>
@@ -205,4 +205,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Home;
+export default Walks;

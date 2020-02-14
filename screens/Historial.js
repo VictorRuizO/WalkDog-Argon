@@ -10,8 +10,8 @@ import {
 //galio
 import { Block, Text, theme } from "galio-framework";
 //argon
-import { articles, Images, argonTheme } from "../constants/";
-import { Card } from "../components/";
+import { articles, Images, argonTheme } from "../constants";
+import { Card } from "../components";
 
 const { width } = Dimensions.get("screen");
 
@@ -36,7 +36,7 @@ const categories = [
   }
 ];
 
-class Articles extends React.Component {
+class Historial extends React.Component {
   renderProduct = (item, index) => {
     const { navigation } = this.props;
 
@@ -82,11 +82,14 @@ class Articles extends React.Component {
     return (
       <Block flex style={styles.group}>
         
-        <Block flex>
+        <Block flex style={{ width:width }}>
           <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-            <Card item={articles[4]} full />
-            <Card item={articles[4]} full />
-            <Card item={articles[4]} full />
+            <Card item={articles[0]}  horizontal />
+            <Card item={articles[1]} horizontal />
+            <Card item={articles[2]} horizontal />
+            <Card item={articles[0]}  horizontal />
+            <Card item={articles[1]} horizontal />
+            <Card item={articles[2]} horizontal />
             
           </Block>
           
@@ -205,4 +208,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Articles;
+export default Historial;
