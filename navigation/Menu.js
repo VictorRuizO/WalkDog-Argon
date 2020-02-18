@@ -14,8 +14,8 @@ const { width } = Dimensions.get("screen");
 
 const Drawer = props => (
   <Block style={styles.container} forceInset={{ top: 'always', horizontal: 'never' }}>
-    <Block flex={0.05} style={styles.header}>
-      <Image styles={styles.logo} source={Images.Logo} />
+    <Block flex={0.45} style={styles.header}>
+      <Image styles={styles.logo} source={Images.LogoPeq} />
     </Block>
     <Block flex>
       <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
@@ -56,6 +56,13 @@ const Menu = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  logo: {
+    width: 80,
+    height: 80,
+    zIndex: 2,
+    position: 'relative',
+    marginTop: '5%'
   },
   header: {
     paddingHorizontal: 28,

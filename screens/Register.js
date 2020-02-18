@@ -106,7 +106,7 @@ class Register extends React.Component {
                     <Block middle style={{ marginBottom: 15 }}>
                       <Button color="primary" 
                       style={styles.createButton}
-                      onPress={() => navigation.navigate("Articles")}
+                      onPress={() => navigation.navigate("Home")}
                       >
                         <Text bold size={14} color={argonTheme.COLORS.WHITE}>
                           Crear cuenta

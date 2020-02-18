@@ -1,11 +1,12 @@
 // local imgs
 const Onboarding = require("../assets/imgs/bg.png");
-const Logo = require("../assets/imgs/argon-logo.png");
-const LogoOnboarding = require("../assets/imgs/argon-logo-onboarding.png");
+const Logo = require("../assets/imgs/logo_redondo.png");
+const LogoPeq = require("../assets/imgs/logo_redondo_peq.png");
+const LogoOnboarding = require("../assets/imgs/logo_redondo.png");
 const ProfileBackground = require("../assets/imgs/profile-screen-bg.png");
 const RegisterBackground = require("../assets/imgs/register-bg.png");
 const Pro = require("../assets/imgs/getPro-bg.png");
-const ArgonLogo = require("../assets/imgs/argonlogo.png");
+const ArgonLogo = require("../assets/imgs/logo_redondo.png");
 const iOSLogo = require("../assets/imgs/ios.png");
 const androidLogo = require("../assets/imgs/android.png");
 const fondoOnboard = require("../assets/imgs/fondo_full.png");
@@ -41,5 +42,6 @@ export default {
   iOSLogo,
   androidLogo,
   fondoOnboard,
-  logoRedondo
+  logoRedondo,
+  LogoPeq
 };
