@@ -8,14 +8,58 @@ import {
   KeyboardAvoidingView
 } from "react-native";
 import { Block, Checkbox, Text, theme } from "galio-framework";
-
+import { openDatabase } from "expo-sqlite";
 import { Button, Icon, Input } from "../components";
 import { Images, argonTheme } from "../constants";
+import { ScrollView } from "react-native-gesture-handler";
 const { width, height } = Dimensions.get("screen");
-
+const db = openDatabase("walkdog.db");
 class Register extends React.Component {
+  state = {
+    cedula:'',
+    name: '',
+    celular:'',
+    email: '',
+    contra:'',
+    confirm:''
+  }
+
+  
+
+  handleName(e) { this.state.name=e.nativeEvent.text}
+  handleEmail(e) { this.state.email=e.nativeEvent.text }
+  handleCedula(e) { this.state.cedula=e.nativeEvent.text }
+  handleCelular(e) { this.state.celular=e.nativeEvent.text }
+  handleContra(e) { this.state.contra=e.nativeEvent.text }
+  handleConfir(e) { this.state.confirm=e.nativeEvent.text }
+
+  eventoRegistrar(){
+    db.transaction(tx => {
+      tx.executeSql(
+        "INSERT INTO Paseador VALUES ('"+this.state.cedula+"','"+this.state.name+"','"+this.state.celular+"','"+this.state.email+"',0,0)"
+      );
+      tx.executeSql(
+        'SELECT * FROM Paseador',
+        [],
+        (tx,result)=>{
+          console.log('asasa');
+        },
+        () => console.log("error fetching")
+      );
+    });
+  }
+
+  creartablas(){
+    db.transaction(tx => {
+      tx.executeSql(
+        'CREATE TABLE IF NOT EXISTS "Paseador" ("Cedula"	NUMERIC,"Nombre"	TEXT,"Celular"	TEXT, "Correo"	TEXT,"Paseos"	INTEGER,"Calificacion"	INTEGER,PRIMARY KEY("Cedula");'
+        );
+    });
+  }
+
   render() {
     const { navigation } = this.props;
+    this.creartablas();
     return (
       <Block flex middle>
         <StatusBar hidden />
@@ -27,7 +71,7 @@ class Register extends React.Component {
             <Block style={styles.registerContainer}>
              
               <Block flex>
-                
+                <ScrollView>
                 <Block flex center>
                   <KeyboardAvoidingView
                     style={{ flex: 1 }}
@@ -40,7 +84,40 @@ class Register extends React.Component {
                     <Block width={width * 0.8} style={{ marginBottom: 10 }}>
                       <Input
                         borderless
-                        placeholder="Name"
+                        placeholder="Cédula"
+                        onChange={(e)=>this.handleCedula(e)}
+                        iconContent={
+                          <Icon
+                            size={16}
+                            color={argonTheme.COLORS.ICON}
+                            name="hat-3"
+                            family="ArgonExtra"
+                            style={styles.inputIcons}
+                          />
+                        }
+                      />
+                    </Block>
+                    <Block width={width * 0.8} style={{ marginBottom: 10 }}>
+                      <Input
+                        borderless
+                        placeholder="Nombre"
+                        onChange={(e)=>this.handleName(e)}
+                        iconContent={
+                          <Icon
+                            size={16}
+                            color={argonTheme.COLORS.ICON}
+                            name="hat-3"
+                            family="ArgonExtra"
+                            style={styles.inputIcons}
+                          />
+                        }
+                      />
+                    </Block>
+                    <Block width={width * 0.8} style={{ marginBottom: 10 }}>
+                      <Input
+                        borderless
+                        placeholder="Celular"
+                        onChange={(e)=>this.handleCelular(e)}
                         iconContent={
                           <Icon
                             size={16}
@@ -56,6 +133,7 @@ class Register extends React.Component {
                       <Input
                         borderless
                         placeholder="Email"
+                        onChange={(e)=>this.handleEmail(e)}
                         iconContent={
                           <Icon
                             size={16}
@@ -71,7 +149,26 @@ class Register extends React.Component {
                       <Input
                         password
                         borderless
-                        placeholder="Password"
+                        placeholder="Contraseña"
+                        onChange={(e)=>this.handleContra(e)}
+                        iconContent={
+                          <Icon
+                            size={16}
+                            color={argonTheme.COLORS.ICON}
+                            name="padlock-unlocked"
+                            family="ArgonExtra"
+                            style={styles.inputIcons}
+                          />
+                        }
+                      />
+                      
+                    </Block>
+                    <Block width={width * 0.8}>
+                      <Input
+                        password
+                        borderless
+                        placeholder="Confirmar contraseña"
+                        onChange={(e)=>this.handleConfir(e)}
                         iconContent={
                           <Icon
                             size={16}
@@ -106,7 +203,7 @@ class Register extends React.Component {
                     <Block middle style={{ marginBottom: 15 }}>
                       <Button color="primary" 
                       style={styles.createButton}
-                      onPress={() => navigation.navigate("Home")}
+                      onPress={() => this.eventoRegistrar()}
                       >
                         <Text bold size={14} color={argonTheme.COLORS.WHITE}>
                           Crear cuenta
@@ -129,6 +226,7 @@ class Register extends React.Component {
                     </Block>
                   </KeyboardAvoidingView>
                 </Block>
+                </ScrollView>
               </Block>
             </Block>
           </Block>
