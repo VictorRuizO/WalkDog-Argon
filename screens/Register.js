@@ -8,12 +8,13 @@ import {
   KeyboardAvoidingView
 } from "react-native";
 import { Block, Checkbox, Text, theme } from "galio-framework";
-import { openDatabase } from "expo-sqlite";
 import { Button, Icon, Input } from "../components";
 import { Images, argonTheme } from "../constants";
 import { ScrollView } from "react-native-gesture-handler";
+import { Alert} from 'react-native'
 const { width, height } = Dimensions.get("screen");
-const db = openDatabase("walkdog.db");
+import data from '../usuario.json';
+
 class Register extends React.Component {
   state = {
     cedula:'',
@@ -23,7 +24,7 @@ class Register extends React.Component {
     contra:'',
     confirm:''
   }
-
+  
   
 
   handleName(e) { this.state.name=e.nativeEvent.text}
@@ -34,32 +35,24 @@ class Register extends React.Component {
   handleConfir(e) { this.state.confirm=e.nativeEvent.text }
 
   eventoRegistrar(){
-    db.transaction(tx => {
-      tx.executeSql(
-        "INSERT INTO Paseador VALUES ('"+this.state.cedula+"','"+this.state.name+"','"+this.state.celular+"','"+this.state.email+"',0,0)"
-      );
-      tx.executeSql(
-        'SELECT * FROM Paseador',
-        [],
-        (tx,result)=>{
-          console.log('asasa');
-        },
-        () => console.log("error fetching")
-      );
-    });
+    if(this.state.contra != this.state.confirm){
+      console.log("no coinsiden las contraseñas");
+      Alert.alert( 'Error','No coinsiden las contraseñas',[{text: 'Aceptar', onPress: () => console.log("ok")}],{cancelable:false});
+      return;
+    }
+    data.name=this.state.name;
+    data.email=this.state.email;
+    data.cc=this.state.cedula;
+    data.telefono=this.state.celular;
+    data.contrasena=this.state.contra;
+    console.log(data)
+    this.props.navigation.navigate("Login")
   }
 
-  creartablas(){
-    db.transaction(tx => {
-      tx.executeSql(
-        'CREATE TABLE IF NOT EXISTS "Paseador" ("Cedula"	NUMERIC,"Nombre"	TEXT,"Celular"	TEXT, "Correo"	TEXT,"Paseos"	INTEGER,"Calificacion"	INTEGER,PRIMARY KEY("Cedula");'
-        );
-    });
-  }
+  
 
   render() {
     const { navigation } = this.props;
-    this.creartablas();
     return (
       <Block flex middle>
         <StatusBar hidden />

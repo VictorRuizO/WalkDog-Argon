@@ -11,9 +11,33 @@ import { Block, Checkbox, Text, theme } from "galio-framework";
 
 import { Button, Icon, Input } from "../components";
 import { Images, argonTheme } from "../constants";
+import { Alert} from 'react-native'
+import data from '../usuario.json';
 const { width, height } = Dimensions.get("screen");
 
 class Login extends React.Component {
+  state = {
+    email: '',
+    contra:''
+  }
+
+  handleEmail(e) { this.state.email=e.nativeEvent.text }
+  handleContra(e) { this.state.contra=e.nativeEvent.text }
+
+  eventoLogin(){
+    if(this.state.contra != data.contrasena || this.state.email != data.email){
+      console.log("usuario no encontrado");
+      Alert.alert( 'Error','No coincide el usuario y la contraseña o el usuario no esta registrado.',[{text: 'Aceptar', onPress: () => console.log("ok")}],{cancelable:false});
+      return;
+    }
+    console.log(data)
+    console.log(this.state)
+    this.props.navigation.navigate("Home")
+    
+  }
+
+  
+
   render() {
     const { navigation } = this.props;
     return (
@@ -42,11 +66,13 @@ class Login extends React.Component {
                       <Input
                         borderless
                         placeholder="Email"
+                        onChange={(e)=>this.handleEmail(e)}
                         iconContent={
                           <Icon
                             size={16}
                             color={argonTheme.COLORS.ICON}
                             name="ic_mail_24px"
+                            value="adasdasda"
                             family="ArgonExtra"
                             style={styles.inputIcons}
                           />
@@ -58,6 +84,7 @@ class Login extends React.Component {
                         password
                         borderless
                         placeholder="Password"
+                        onChange={(e)=>this.handleContra(e)}
                         iconContent={
                           <Icon
                             size={16}
@@ -74,7 +101,7 @@ class Login extends React.Component {
                     <Block middle style={{ marginBottom: 15 }}>
                       <Button color="primary" 
                       style={styles.createButton}
-                      onPress={() => navigation.navigate("Home")}
+                      onPress={() => this.eventoLogin()}
                       >
                         <Text bold size={14} color={argonTheme.COLORS.WHITE}>
                           Login
