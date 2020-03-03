@@ -22,7 +22,9 @@ class Register extends React.Component {
     celular:'',
     email: '',
     contra:'',
-    confirm:''
+    confirm:'',
+    ciudad:'',
+    departamento:''
   }
   
   
@@ -33,6 +35,18 @@ class Register extends React.Component {
   handleCelular(e) { this.state.celular=e.nativeEvent.text }
   handleContra(e) { this.state.contra=e.nativeEvent.text }
   handleConfir(e) { this.state.confirm=e.nativeEvent.text }
+  handleCiudad(e) { this.state.ciudad=e.nativeEvent.text }
+  handleDepa(e) { this.state.departamento=e.nativeEvent.text }
+
+  emailValidator(email) {
+    const re = /\S+@\S+\.\S+/;
+  
+    if (!email || email.length <= 0) return 'El email no puede estar vacio.';
+    if (!re.test(email)) return 'Ooops! El email ingresado no es válido.';
+  
+    return '';
+  };
+
 
   eventoRegistrar(){
     if(this.state.contra != this.state.confirm){
@@ -40,11 +54,17 @@ class Register extends React.Component {
       Alert.alert( 'Error','No coinsiden las contraseñas',[{text: 'Aceptar', onPress: () => console.log("ok")}],{cancelable:false});
       return;
     }
+    if(this.emailValidator(this.state.email)!=''){
+      Alert.alert( 'Error',this.emailValidator(this.state.email),[{text: 'Aceptar', onPress: () => console.log("ok")}],{cancelable:false});
+      return;
+    }
     data.name=this.state.name;
     data.email=this.state.email;
     data.cc=this.state.cedula;
     data.telefono=this.state.celular;
     data.contrasena=this.state.contra;
+    data.departamento=this.state.departamento;
+    data.ciudad=this.state.ciudad;
     console.log(data)
     this.props.navigation.navigate("Login")
   }
@@ -138,6 +158,41 @@ class Register extends React.Component {
                         }
                       />
                     </Block>
+
+                    <Block width={width * 0.8} style={{ marginBottom: 10 }}>
+                      <Input
+                        borderless
+                        placeholder="Departamento"
+                        onChange={(e)=>this.handleDepa(e)}
+                        iconContent={
+                          <Icon
+                            size={16}
+                            color={argonTheme.COLORS.ICON}
+                            name="ic_mail_24px"
+                            family="ArgonExtra"
+                            style={styles.inputIcons}
+                          />
+                        }
+                      />
+                    </Block>
+
+                    <Block width={width * 0.8} style={{ marginBottom: 10 }}>
+                      <Input
+                        borderless
+                        placeholder="Ciudad"
+                        onChange={(e)=>this.handleCiudad(e)}
+                        iconContent={
+                          <Icon
+                            size={16}
+                            color={argonTheme.COLORS.ICON}
+                            name="ic_mail_24px"
+                            family="ArgonExtra"
+                            style={styles.inputIcons}
+                          />
+                        }
+                      />
+                    </Block>
+
                     <Block width={width * 0.8}>
                       <Input
                         password
@@ -174,25 +229,7 @@ class Register extends React.Component {
                       />
                       
                     </Block>
-                    <Block row width={width * 0.75}>
-                      <Checkbox
-                        checkboxStyle={{
-                          borderWidth: 3
-                        }}
-                        color={argonTheme.COLORS.PRIMARY}
-                        label="I agree with the"
-                      />
-                      <Button
-                        style={{ width: 100 }}
-                        color="transparent"
-                        textStyle={{
-                          color: argonTheme.COLORS.PRIMARY,
-                          fontSize: 14
-                        }}
-                      >
-                        Privacy Policy
-                      </Button>
-                    </Block>
+                    
                     <Block middle style={{ marginBottom: 15 }}>
                       <Button color="primary" 
                       style={styles.createButton}

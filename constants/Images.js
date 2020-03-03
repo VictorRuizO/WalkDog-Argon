@@ -13,7 +13,7 @@ const fondoOnboard = require("../assets/imgs/fondo_full.png");
 const logoRedondo = require("../assets/imgs/logo_redondo.png");
 // internet imgs
 
-const ProfilePicture = 'https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?fit=crop&w=1650&q=80';
+const ProfilePicture = 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png';
 
 const Viewed = [
   'https://images.unsplash.com/photo-1501601983405-7c7cabaa1581?fit=crop&w=240&q=80',

@@ -3,7 +3,7 @@ import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
 import { StyleSheet, Dimensions, Image, TouchableWithoutFeedback } from 'react-native';
 import { Block, Text, theme } from 'galio-framework';
-
+import { Linking} from 'react-native'
 import { argonTheme } from '../constants';
 
 
@@ -37,6 +37,9 @@ class Card extends React.Component {
               <Text size={15} muted={!ctaColor} color={ctaColor || argonTheme.COLORS.ACTIVE} bold>{item.cta2}</Text>
             </Block>
             <Text size={13} muted={!ctaColor} color={ctaColor || argonTheme.COLORS.ACTIVE} bold>{item.cta3}</Text>
+            <Text size={13}
+            onPress={()=>Linking.openURL(item.link)}
+             muted={!ctaColor} color={ctaColor || argonTheme.COLORS.ACTIVE} bold>{item.cta4}</Text>
             
           </Block>
         </TouchableWithoutFeedback>

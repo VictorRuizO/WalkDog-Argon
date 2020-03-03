@@ -3,7 +3,10 @@
     email:"",
     cc:"",
     telefono:"",
+    ciudad:"Tulua",
+    departamento:"Valle del Cauca",
     contrasena:"",
-    calificacion:0,
-    paseos:0
+    calificacion:3.0,
+    paseos:2,
+    comentarios:10
 }
