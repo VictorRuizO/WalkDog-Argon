@@ -13,15 +13,24 @@ import { Button } from "../components";
 import { Images, argonTheme } from "../constants";
 import { HeaderHeight } from "../constants/utils";
 import data from '../usuario.json';
-
+import { NavigationEvents } from 'react-navigation';
 const { width, height } = Dimensions.get("screen");
 
 const thumbMeasure = (width - 48 - 32) / 3;
 
 class Profile extends React.Component {
+
+
+  
   render() {
+    
+    const { navigation } = this.props;
     return (
+      
       <Block flex style={styles.profile}>
+        <NavigationEvents
+        onDidFocus={() => this.forceUpdate()}
+        />
         <Block flex>
           <ImageBackground
             source={Images.ProfileBackground}
@@ -108,6 +117,7 @@ class Profile extends React.Component {
                     
                     <Button
                       color="transparent"
+                      onPress={() => navigation.navigate("Register")}
                       textStyle={{
                         color: "#233DD2",
                         fontWeight: "500",
@@ -127,6 +137,7 @@ class Profile extends React.Component {
       </Block>
     );
   }
+  
 }
 
 const styles = StyleSheet.create({

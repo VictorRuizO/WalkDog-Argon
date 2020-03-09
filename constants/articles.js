@@ -16,8 +16,22 @@ export default [
     cta3: 'Ver paseo' 
   },
   {
-    title: 'Descripcion de las ultima noticias de perros y mascotas',
-    image: "https://www.elcomercio.com/files/article_main/uploads/2019/11/19/5dd46f53c97eb.jpeg",
+    title: 'Negro\nRaza: Rottweiler\nTiempo: 45 mins \nHora: 18:00',
+    image: "https://www.elheraldo.co/sites/default/files/styles/width_860/public/articulo/2019/06/17/perros.jpg",
+    cta1: 'Aceptar',
+    cta2: 'Rechazar', 
+    horizontal: true
+  },
+  {
+    title: 'Scott\nRaza: Schnauzer\nTiempo: 30 mins \nHora: 16:30',
+    image: "https://cdn.aarp.net/content/dam/aarp/home-and-family/your-home/2019/05/1140-miniature-schnauzer-esp.imgcache.rev439d301610f190d8ffc66f51d1196c78.jpg",
+    cta1: 'Aceptar',
+    cta2: 'Rechazar', 
+    horizontal: true
+  },
+  {
+    title: 'Manchas\nRaza: Dalmata\nTiempo: 60 mins \nHora: 19:00',
+    image: "https://www.curiosfera.com/wp-content/uploads/2018/04/dalmata.jpg",
     cta1: 'Aceptar',
     cta2: 'Rechazar', 
     horizontal: true

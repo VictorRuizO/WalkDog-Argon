@@ -84,8 +84,8 @@ class Home extends React.Component {
         
         <Block flex>
           <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-            <Card item={articles[4]} full />
-            <Card item={articles[5]} full />
+            <Card item={articles[9]} full />
+            <Card item={articles[10]} full />
             <Card item={articles[6]} full />
             <Card item={articles[7]} full />
             <Card item={articles[8]} full />

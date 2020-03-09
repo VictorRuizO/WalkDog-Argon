@@ -49,8 +49,33 @@ class Register extends React.Component {
 
 
   eventoRegistrar(){
+    if(this.state.name == ""){
+      console.log("Ingrese su nombre");
+      Alert.alert( 'Error','Ingrese el nombre.',[{text: 'Aceptar', onPress: () => console.log("ok")}],{cancelable:false});
+      return;
+    }
+    if(this.state.cedula == ""){
+      console.log("Ingrese la cedula");
+      Alert.alert( 'Error','Ingrese la cedula.',[{text: 'Aceptar', onPress: () => console.log("ok")}],{cancelable:false});
+      return;
+    }
+    if(this.state.celular == ""){
+      console.log("Ingrese su celular");
+      Alert.alert( 'Error','Ingrese el numero de celular.',[{text: 'Aceptar', onPress: () => console.log("ok")}],{cancelable:false});
+      return;
+    }
+    if(this.state.departamento == ""){
+      console.log("Ingrese su celular");
+      Alert.alert( 'Error','Ingrese el departamento en el que reside.',[{text: 'Aceptar', onPress: () => console.log("ok")}],{cancelable:false});
+      return;
+    }
+    if(this.state.ciudad == ""){
+      console.log("Ingrese su celular");
+      Alert.alert( 'Error','Ingrese la ciudad en la que reside.',[{text: 'Aceptar', onPress: () => console.log("ok")}],{cancelable:false});
+      return;
+    }
     if(this.state.contra != this.state.confirm){
-      console.log("no coinsiden las contraseñas");
+      console.log("no coinciden las contraseñas");
       Alert.alert( 'Error','No coinsiden las contraseñas',[{text: 'Aceptar', onPress: () => console.log("ok")}],{cancelable:false});
       return;
     }
@@ -58,6 +83,7 @@ class Register extends React.Component {
       Alert.alert( 'Error',this.emailValidator(this.state.email),[{text: 'Aceptar', onPress: () => console.log("ok")}],{cancelable:false});
       return;
     }
+    
     data.name=this.state.name;
     data.email=this.state.email;
     data.cc=this.state.cedula;

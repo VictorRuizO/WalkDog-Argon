@@ -83,10 +83,10 @@ class Walks extends React.Component {
       <Block flex style={styles.group}>
         
         <Block flex>
-          <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+          <Block style={{ width:width }}>
             <Card item={articles[3]} full />
-            <Card item={articles[3]} full />
-            <Card item={articles[3]} full />
+            <Card item={articles[4]} full />
+            <Card item={articles[5]} full />
             
           </Block>
           
